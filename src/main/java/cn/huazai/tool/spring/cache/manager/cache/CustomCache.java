@@ -4,7 +4,6 @@ package cn.huazai.tool.spring.cache.manager.cache;
 import cn.huazai.tool.spring.cache.manager.core.CacheTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.Cache;
-import org.springframework.util.Assert;
 
 import java.lang.reflect.Constructor;
 import java.time.Duration;
@@ -110,8 +109,6 @@ public class CustomCache implements Cache {
     @SuppressWarnings("unchecked")
     public <T> T get(Object key, Callable<T> valueLoader) {
         log.debug("CustomCache.get(key, valueLoader): {}", key);
-        Assert.notNull(name, "Name must not be null!");
-        Assert.notNull(key, "Key must not be null!");
         T t = (T) cacheTemplate.get(key);
         if (null == t) {
             try {
