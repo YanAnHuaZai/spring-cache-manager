@@ -24,7 +24,6 @@ public class CustomCacheManager implements CacheManager {
         this.cacheTemplate = cacheTemplate;
     }
 
-
     /**
      * 存储所有的缓存对象
      */
