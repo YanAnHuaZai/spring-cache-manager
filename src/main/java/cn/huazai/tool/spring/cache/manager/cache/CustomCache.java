@@ -91,7 +91,7 @@ public class CustomCache implements Cache {
 
     @Override
     public ValueWrapper get(Object key) {
-        log.debug("CustomCache.get(key) : {}", key);
+        log.debug("CustomCache.get(key): {}", key);
         Object result = cacheTemplate.get(key);
         if (null != result) {
             return () -> result;
@@ -102,14 +102,14 @@ public class CustomCache implements Cache {
     @Override
     @SuppressWarnings("unchecked")
     public <T> T get(Object key, Class<T> type) {
-        log.debug("CustomCache.get(key, type) : {}, type : {}", key, type);
+        log.debug("CustomCache.get(key, type): {}, type: {}", key, type);
         return (T) cacheTemplate.get(key);
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public <T> T get(Object key, Callable<T> valueLoader) {
-        log.debug("CustomCache.get(key, valueLoader) : {}, valueLoader", key);
+        log.debug("CustomCache.get(key, valueLoader): {}", key);
         Assert.notNull(name, "Name must not be null!");
         Assert.notNull(key, "Key must not be null!");
         T t = (T) cacheTemplate.get(key);
@@ -137,13 +137,13 @@ public class CustomCache implements Cache {
 
     @Override
     public void put(Object key, Object value) {
-        log.debug("CustomCache.put(key, value) : {}, value: {}", key, value);
+        log.debug("CustomCache.put(key, value): {}, value: {}", key, value);
         cacheTemplate.setIfAbsent(key, value, ttl);
     }
 
     @Override
     public void evict(Object key) {
-        log.debug("CustomCache.evict(key) : {}", key);
+        log.debug("CustomCache.evict(key): {}", key);
         cacheTemplate.delete(key);
     }
 
