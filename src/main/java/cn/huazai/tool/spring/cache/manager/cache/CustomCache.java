@@ -60,7 +60,7 @@ public class CustomCache implements Cache {
         // 校验缓存名称是否合规
         Matcher matcher = CACHE_NAME_PATTERN.matcher(name);
         if (!matcher.find()) {
-            log.warn("DchCache.buildByName 不符合缓存名称规则, name:{}", name);
+            log.warn("CustomCache.buildByName 不符合缓存名称规则, name:{}", name);
             return null;
         }
 
@@ -79,19 +79,19 @@ public class CustomCache implements Cache {
 
     @Override
     public String getName() {
-        log.debug("DchCache.getName(): {}", name);
+        log.debug("CustomCache.getName(): {}", name);
         return name;
     }
 
     @Override
     public Object getNativeCache() {
-        log.debug("DchCache.getNativeCache(): {}", cacheTemplate);
+        log.debug("CustomCache.getNativeCache(): {}", cacheTemplate);
         return cacheTemplate;
     }
 
     @Override
     public ValueWrapper get(Object key) {
-        log.debug("DchCache.get(key) : {}", key);
+        log.debug("CustomCache.get(key) : {}", key);
         Object result = cacheTemplate.get(key);
         if (null != result) {
             return () -> result;
@@ -102,14 +102,14 @@ public class CustomCache implements Cache {
     @Override
     @SuppressWarnings("unchecked")
     public <T> T get(Object key, Class<T> type) {
-        log.debug("DchCache.get(key, type) : {}, type : {}", key, type);
+        log.debug("CustomCache.get(key, type) : {}, type : {}", key, type);
         return (T) cacheTemplate.get(key);
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public <T> T get(Object key, Callable<T> valueLoader) {
-        log.debug("DchCache.get(key, valueLoader) : {}, valueLoader", key);
+        log.debug("CustomCache.get(key, valueLoader) : {}, valueLoader", key);
         Assert.notNull(name, "Name must not be null!");
         Assert.notNull(key, "Key must not be null!");
         T t = (T) cacheTemplate.get(key);
@@ -137,18 +137,18 @@ public class CustomCache implements Cache {
 
     @Override
     public void put(Object key, Object value) {
-        log.debug("DchCache.put(key, value) : {}, value: {}", key, value);
+        log.debug("CustomCache.put(key, value) : {}, value: {}", key, value);
         cacheTemplate.setIfAbsent(key, value, ttl);
     }
 
     @Override
     public void evict(Object key) {
-        log.debug("DchCache.evict(key) : {}", key);
+        log.debug("CustomCache.evict(key) : {}", key);
         cacheTemplate.delete(key);
     }
 
     @Override
     public void clear() {
-        log.debug("DchCache.clear()");
+        log.debug("CustomCache.clear()");
     }
 }
