@@ -21,6 +21,8 @@ public class CustomCacheManager implements CacheManager {
     private final CacheTemplate cacheTemplate;
 
     public CustomCacheManager(CacheTemplate cacheTemplate) {
+        Assert.notNull(cacheTemplate, "CacheTemplate must not be null");
+
         this.cacheTemplate = cacheTemplate;
     }
 
