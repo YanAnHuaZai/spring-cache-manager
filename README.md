@@ -39,7 +39,7 @@
    }
    ```
 
-2. 注入`cn.huazai.tool.spring.cache.manager.cache.CustomCacheManager`
+2. 注入`cn.huazai.tool.spring.cache.manager.CustomCacheManager`
 
    eg.
    ```java
