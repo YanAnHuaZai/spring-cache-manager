@@ -53,5 +53,23 @@
            return new CustomCacheManager(cacheTemplate);
        }
    
-   }   
+   }
+   ```
+   
+   在1.1.0版本中新增了*缓存名称配置错误处理策略*如果你希望自定义该策略，可以使用`CustomCacheManager`的另一个构造函数
+   
+   eg.
+   ```java
+      @Slf4j
+   @Configuration
+   public class CacheManagerConfig {
+   
+      @Bean
+      public CacheManager cacheManager(CacheTemplate cacheTemplate) {
+         log.info("initializing cacheManager: cacheTemplate");
+         // 设置缓存名称配置错误处理策略为指定缓存时间（1分钟），后续如存在配置错误情况，则会按照1分钟缓存
+         return new CustomCacheManager(cacheTemplate, new MistakeSpecifiedCacheTimeStrategy("1min"));
+      }
+   
+   }
    ```
