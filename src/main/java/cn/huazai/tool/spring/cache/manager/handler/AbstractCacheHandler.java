@@ -58,6 +58,7 @@ public abstract class AbstractCacheHandler {
             log.debug("缓存名称 '{}' 未命中 '{}'处理，继续交由'{}'处理", cacheName, this.getClass().getSimpleName(), successor.getClass().getSimpleName());
             return successor.getCache(cacheTemplate, cacheName);
         }
+        log.debug("缓存名称 '{}' 未命中 '{}'处理，无其他继承者", cacheName, this.getClass().getSimpleName());
         log.warn("无继承者可获取缓存处理");
         return null;
     }
