@@ -1,6 +1,6 @@
-package cn.huazai.tool.spring.cache.manager.cache.mistake.impl;
+package cn.huazai.tool.spring.cache.manager.mistake.impl;
 
-import cn.huazai.tool.spring.cache.manager.cache.mistake.IMistakeStrategy;
+import cn.huazai.tool.spring.cache.manager.mistake.IMistakeStrategy;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 

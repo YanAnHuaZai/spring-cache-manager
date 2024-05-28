@@ -1,4 +1,4 @@
-package cn.huazai.tool.spring.cache.manager.cache.mistake;
+package cn.huazai.tool.spring.cache.manager.mistake;
 
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
