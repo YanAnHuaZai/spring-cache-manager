@@ -1,6 +1,7 @@
 package cn.huazai.tool.spring.cache.manager.mistake;
 
 import cn.huazai.tool.spring.cache.manager.mistake.impl.MistakeThrowExceptionStrategy;
+import cn.huazai.tool.spring.cache.manager.mistake.impl.MistakeUncachedStrategy;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +24,8 @@ public class MistakeStrategyFactory {
     static {
         // 抛出异常策略
         STRATEGY_MAP.put(MistakeStrategyEnum.THROW_EXCEPTION, new MistakeThrowExceptionStrategy());
+        // 不缓存策略
+        STRATEGY_MAP.put(MistakeStrategyEnum.UNCACHED, new MistakeUncachedStrategy());
     }
 
     public static IMistakeStrategy getStrategy(MistakeStrategyEnum strategyEnum) {

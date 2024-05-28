@@ -16,7 +16,11 @@ public enum MistakeStrategyEnum {
     /**
      * 指定缓存时间
      */
-    SPECIFIED_CACHE_TIME
+    SPECIFIED_CACHE_TIME,
+    /**
+     * 不缓存
+     */
+    UNCACHED,
     ;
 
 }
