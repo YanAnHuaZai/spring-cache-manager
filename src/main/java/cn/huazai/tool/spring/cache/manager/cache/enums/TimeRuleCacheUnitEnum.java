@@ -1,4 +1,4 @@
-package cn.huazai.tool.spring.cache.manager.cache;
+package cn.huazai.tool.spring.cache.manager.cache.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,12 +7,22 @@ import java.time.Duration;
 
 /**
  * 缓存单位枚举
+ * <ul>
+ *     <li>{@code ms}: 毫秒</li>
+ *     <li>{@code s}: 秒</li>
+ *     <li>{@code min}: 分钟</li>
+ *     <li>{@code h}: 小时</li>
+ *     <li>{@code day}: 天(24小时)</li>
+ *     <li>{@code week}: 周(7天)</li>
+ *     <li>{@code month}: 月(31天)</li>
+ *     <li>{@code year}: 年(365天)</li>
+ * </ul>
  *
  * @author YanAnHuaZai on 2024-05-23 19:42:59
  */
 @Getter
 @AllArgsConstructor
-public enum CacheUnitEnum {
+public enum TimeRuleCacheUnitEnum {
 
     /**
      * 缓存单位
@@ -32,6 +42,7 @@ public enum CacheUnitEnum {
 
     /**
      * 按照当前缓存单位 获取超时时间
+     *
      * @param cacheTime 缓存时间
      * @return 超时时间
      */
